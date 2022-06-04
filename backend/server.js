@@ -12,18 +12,16 @@ import panelRoutes from "./routes/panelRoutes.js";
 import studentRoutes from "./routes/studentRoutes.js";
 import subtypeRoutes from "./routes/subTypeRoutes.js";
 
-import documentSaveRoutes from "./routes/documentRoute.js"
+import documentSaveRoutes from "./routes/documentRoute.js";
 
 import documentRoutes from "./routes/documentRoutes.js";
 import apannelRoutes from "./routes/allocatePanelRoutes.js";
 
-
 import fileUploadController from "./controllers/fileuploadController.js";
-import documentUploadController from "./controllers/documentUploadController.js"
+import documentUploadController from "./controllers/documentUploadController.js";
 
-
-import SupEvaluation from "./routes/SupEvaluation.js"
-import getTopic from "./routes/getTopic.js"
+import SupEvaluation from "./routes/SupEvaluation.js";
+import getTopic from "./routes/getTopic.js";
 
 dotenv.config();
 
@@ -37,38 +35,41 @@ app.use(express.json());
 
 // Calling Routes
 app.use("/user", userRoutes);
-app.use('/marking', markingRoutes);
-app.use('/panel', panelRoutes);
+app.use("/marking", markingRoutes);
+app.use("/panel", panelRoutes);
 app.use("/student", studentRoutes);
 app.use("/subtype", subtypeRoutes);
 
 app.use("/documents/", documentSaveRoutes);
 
-app.use('/document', documentRoutes);
-app.use('/APannel',apannelRoutes);
+app.use("/document", documentRoutes);
+app.use("/APannel", apannelRoutes);
 
+app.use("/api/files/", fileUploadController);
+app.use("/api/documents/", documentUploadController);
 
+app.use("/supEve", SupEvaluation);
+app.use("/SupTopic", getTopic);
 
-
-app.use('/api/files/', fileUploadController)
-app.use('/api/documents/', documentUploadController)
-
-app.use("/supEve",SupEvaluation);
-app.use("/SupTopic",getTopic);
-
-const __dirname = path.resolve()
+const __dirname = path.resolve();
 //set upload folder
-app.use(express.static('/uploads/'));
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+app.use(express.static("/uploads/"));
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
+// if (process.env.NODE_ENV === "development") {
+//   app.use(morgan("dev"));
+// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
 
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("Api is working");
+  });
 }
-
-app.get("/", (req, res) => {
-  res.send("Api is working");
-});
 
 //create port
 const PORT = process.env.PORT || 6500;
