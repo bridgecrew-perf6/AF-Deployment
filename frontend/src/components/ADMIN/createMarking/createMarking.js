@@ -35,7 +35,7 @@ export default function CreateMarking() {
       data.append("attachment", attachment);
 
       await axios
-        .post("/api/api/files/uploadFile", data)
+        .post("/api/files/uploadFile", data)
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);

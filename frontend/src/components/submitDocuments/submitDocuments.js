@@ -18,7 +18,7 @@ export default function SubmitDocument() {
       data.append("attachment", attachment);
 
       await axios
-        .post("/api/api/documents/uploadDoc", data)
+        .post("/api/documents/uploadDoc", data)
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);
