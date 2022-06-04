@@ -38,7 +38,7 @@ export default function UploadDocument() {
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);
-            fileUrl = res.data.path.replace(/\\/g, "/");
+            var fileUrl = res.data.path.replace(/\\/g, "/");
 
             const newDocument = {
               assignmentname: assignmentname,
