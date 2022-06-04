@@ -11,7 +11,7 @@ export default function RequestResearch() {
     const [supervisor, setSupervisor] = useState("");
 
     function getUsers() {
-        axios.get("https://af-backend123.herokuapp.com/user/allusers").then((res)=>{
+        axios.get("/api/user/allusers").then((res)=>{
             setUsers(res.data);
         }).catch((err)=>{
             alert((err.message));
@@ -32,7 +32,7 @@ export default function RequestResearch() {
             supervisor,
             status
         }
-        await axios.post("https://af-backend123.herokuapp.com/student/registerTopic", ReqTopic).then((res) => {
+        await axios.post("/api/student/registerTopic", ReqTopic).then((res) => {
             Swal.fire("Success", "Topic Reguested Succesfully", "success").then((result) => {
                 if(result.isConfirmed) {
                     window.location.href = "/studentMain";

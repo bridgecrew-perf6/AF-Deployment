@@ -33,7 +33,7 @@ export default function CreateSubType() {
         explainST,
     }
 
-    axios.post("https://af-backend123.herokuapp.com/subtype/createSubType",newSubType).then((willcreate)=>
+    axios.post("/api/subtype/createSubType",newSubType).then((willcreate)=>
     {
         if(willcreate){
         swal({

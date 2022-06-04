@@ -40,7 +40,7 @@ export default function UserRegister() {
       type
     }
 
-    axios.post("https://af-backend123.herokuapp.com/user/reg",newUser).then((willReg)=>
+    axios.post("/api/user/reg",newUser).then((willReg)=>
     {
       if(willReg){
       swal({

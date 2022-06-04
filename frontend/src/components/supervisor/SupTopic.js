@@ -24,7 +24,7 @@ export default class SupTopic extends Component {
 
     //get request method
     retrieveTopics() {
-        axios.get("https://af-backend123.herokuapp.com/SupTopic/GetTopics").then(res => {
+        axios.get("/api/SupTopic/GetTopics").then(res => {
             console.log(res.data);
 
             if (res.data.success) {
@@ -62,7 +62,7 @@ export default class SupTopic extends Component {
             "status": type
         }
 
-        await axios.put('https://af-backend123.herokuapp.com/SupTopic/updateTopic/' + id, bodyData)
+        await axios.put('/api/SupTopic/updateTopic/' + id, bodyData)
             .then(res => {
                 console.log(res)
                 this.retrieveTopics()
@@ -78,7 +78,7 @@ export default class SupTopic extends Component {
 
         const searchKey = e.currentTarget.value;
 
-        axios.get("https://af-backend123.herokuapp.com/SupTopic/GetTopics").then(res => {
+        axios.get("/api/SupTopic/GetTopics").then(res => {
             if (res.data.success) {
 
                 this.filterData(res.data.existingTopics, searchKey)

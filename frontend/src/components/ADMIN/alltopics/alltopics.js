@@ -26,7 +26,7 @@ export default function AllTopics(){
 
     useEffect(()=>{
         function getTopics() {
-            axios.get("https://af-backend123.herokuapp.com/student/allTopics").then((res)=>{
+            axios.get("/api/student/allTopics").then((res)=>{
                 setTopics(res.data);
             }).catch((err)=>{
                 alert((err.message));

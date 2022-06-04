@@ -18,7 +18,7 @@ export default function SubmitDocument() {
       data.append("attachment", attachment);
 
       await axios
-        .post("https://af-backend123.herokuapp.com/api/documents/uploadDoc", data)
+        .post("/api/api/documents/uploadDoc", data)
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);
@@ -44,7 +44,7 @@ export default function SubmitDocument() {
   async function uploadSchemeData(newDoc) {
     console.log(newDoc);
     await axios
-      .post("https://af-backend123.herokuapp.com/documents/saveDoc", newDoc)
+      .post("/api/documents/saveDoc", newDoc)
       .then((willcreate) => {
         console.log(willcreate);
         if (willcreate) {
@@ -71,7 +71,7 @@ export default function SubmitDocument() {
       };
 
       function getResearch() {
-        axios.get(`https://af-backend123.herokuapp.com/student/getResearchById/${id}`).then((res) => {
+        axios.get(`/api/student/getResearchById/${id}`).then((res) => {
             setResearch(res.data);
         })
     }

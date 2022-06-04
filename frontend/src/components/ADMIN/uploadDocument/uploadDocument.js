@@ -34,7 +34,7 @@ export default function UploadDocument() {
       data.append("attachment", document);
 
       await axios
-        .post("https://af-backend123.herokuapp.com/api/files/uploadFile", data)
+        .post("/api/api/files/uploadFile", data)
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);
@@ -66,7 +66,7 @@ export default function UploadDocument() {
   async function uploadSchemeData(newDocument) {
     console.log(newDocument);
     await axios
-      .post("https://af-backend123.herokuapp.com/document/uploadDocument", newDocument)
+      .post("/api/document/uploadDocument", newDocument)
       .then((willcreate) => {
         console.log(willcreate);
         if (willcreate) {

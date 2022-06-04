@@ -34,7 +34,7 @@ export default function AllMarkings(){
           })
           .then((willDelete) => {
                 if(willDelete){
-            axios.delete(`https://af-backend123.herokuapp.com/marking/deleteMarking/${id}`).then(()=>{
+            axios.delete(`/api/marking/deleteMarking/${id}`).then(()=>{
 
 
             if (willDelete) {
@@ -57,7 +57,7 @@ export default function AllMarkings(){
 
     useEffect(()=>{
         function getMarkings() {
-            axios.get("https://af-backend123.herokuapp.com/marking/allMarkings").then((res)=>{
+            axios.get("/api/marking/allMarkings").then((res)=>{
                 setMarkings(res.data);
             }).catch((err)=>{
                 alert((err.message));

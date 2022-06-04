@@ -21,7 +21,7 @@ export default class SupEvaluation extends Component {
 
   //get request method
   retrievePanelEve(){
-      axios.get("https://af-backend123.herokuapp.com/supEve/GetAlldetails").then(res=>{
+      axios.get("/api/supEve/GetAlldetails").then(res=>{
         console.log(res.data);
        
         if(res.data.success){
@@ -37,7 +37,7 @@ export default class SupEvaluation extends Component {
  //delete function
 
  onDelete = (id)=>{
-  axios.delete(`https://af-backend123.herokuapp.com/supEve/delete/${id}`).then((res)=>{
+  axios.delete(`/api/supEve/delete/${id}`).then((res)=>{
 
     
 
@@ -66,7 +66,7 @@ handleSearchArea=(e)=>{
 
   const searchKey = e.currentTarget.value;
   
-  axios.get("https://af-backend123.herokuapp.com/supEve/GetAlldetails").then(res=>{
+  axios.get("/api/supEve/GetAlldetails").then(res=>{
   if(res.data.success){
   
     this.filterData(res.data.existingDocs,searchKey)

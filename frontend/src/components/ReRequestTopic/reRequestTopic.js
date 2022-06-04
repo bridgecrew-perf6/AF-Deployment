@@ -15,7 +15,7 @@ export default function ReRequestResearch() {
     const [supervisor, setSupervisor] = useState("");
 
     function getUsers() {
-        axios.get("https://af-backend123.herokuapp.com/user/allusers").then((res)=>{
+        axios.get("/api/user/allusers").then((res)=>{
             setUsers(res.data);
         }).catch((err)=>{
             alert((err.message));
@@ -36,7 +36,7 @@ export default function ReRequestResearch() {
             supervisor,
             status
         }
-        axios.put(`https://af-backend123.herokuapp.com/student/updateResearch/${id}`, ReqTopic).then((res) => {
+        axios.put(`/api/student/updateResearch/${id}`, ReqTopic).then((res) => {
             console.log(res)
             Swal.fire("Success", "Topic Reguested Succesfully", "success").then((result) => {
                 if(result.isConfirmed) {
@@ -49,7 +49,7 @@ export default function ReRequestResearch() {
     }
 
     function getResearch() {
-        axios.get(`https://af-backend123.herokuapp.com/student/getResearchById/${id}`).then((res) => {
+        axios.get(`/api/student/getResearchById/${id}`).then((res) => {
             setResearch(res.data);
         })
     }

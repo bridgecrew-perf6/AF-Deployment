@@ -57,7 +57,7 @@ export default function SupEveOneDetail()  {
 
          useEffect(function effectFunction() {
              console.log("get ID",id);
-            axios.get(`https://af-backend123.herokuapp.com/supEve/getOneDetail/${id?.id}`)
+            axios.get(`/api/supEve/getOneDetail/${id?.id}`)
             .then(res=>{
                 console.log("data",res);
                 setGroupname(res.data.getOneDetail.Groupname);

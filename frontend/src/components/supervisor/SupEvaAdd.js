@@ -278,7 +278,7 @@ onSubmit=(e)=>{
 
 
   //save data
-  axios.post("https://af-backend123.herokuapp.com/supEve/saveDetails",data).then((res) =>{
+  axios.post("/api/supEve/saveDetails",data).then((res) =>{
     if(res.data.success){
       this.setState(
         {

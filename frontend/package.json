@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Research Project Management System",
   "source": "./src/index.html",
+  "proxy": "http://127.0.0.1:6500",
   "scripts": {
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html"

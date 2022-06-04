@@ -37,7 +37,7 @@ export default function AllAllocatedPM(){
           })
           .then((willDelete) => {
                 if(willDelete){
-            axios.delete(`https://af-backend123.herokuapp.com/APannel/deleteAPmember/${id}`).then(()=>{
+            axios.delete(`/api/APannel/deleteAPmember/${id}`).then(()=>{
 
 
             if (willDelete) {
@@ -86,7 +86,7 @@ export default function AllAllocatedPM(){
 
     useEffect(()=>{
         function getPanelM() {
-            axios.get("https://af-backend123.herokuapp.com/APannel/allAPmembers").then((res)=>{
+            axios.get("/api/APannel/allAPmembers").then((res)=>{
                 setPanelM(res.data);
             }).catch((err)=>{
                 alert((err.message));

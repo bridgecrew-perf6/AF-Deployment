@@ -22,7 +22,7 @@ export default function StudentRegister() {
     };
  
     axios
-        .post("https://af-backend123.herokuapp.com/student/registerStudent", newStudent)
+        .post("/api/student/registerStudent", newStudent)
         .then((res) => {
           localStorage.setItem("user", JSON.stringify(res.data));
           window.location.href = "/studentMain";

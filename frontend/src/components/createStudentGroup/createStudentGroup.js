@@ -38,7 +38,7 @@ export default function CreateStudentGroup() {
           member4
         }
 
-        axios.post("https://af-backend123.herokuapp.com/student/registerGroup", group).then((res) => {
+        axios.post("/api/student/registerGroup", group).then((res) => {
                     Swal.fire("Success", "Group Registered Succesfully", "success").then((res) => {
                       if(res.isConfirmed) {
                         window.location.href = "/studentMain";
@@ -62,7 +62,7 @@ export default function CreateStudentGroup() {
         //             member4
         //         }
 
-        //         axios.post("https://af-backend123.herokuapp.com/student/registerGroup", group).then((res) => {
+        //         axios.post("/api/student/registerGroup", group).then((res) => {
         //             Swal.fire("Success", "Group Registered Succesfully", "success");
         //         }).catch((err) => {
         //             alert(err);
@@ -78,7 +78,7 @@ export default function CreateStudentGroup() {
       const stud = {
         email: member
       }
-      const url = "https://af-backend123.herokuapp.com/student/studentinGroup"
+      const url = "/api/student/studentinGroup"
       await axios.get(url, stud).then((res) => {
         if(res.data.available) {
           console.log(stud)
@@ -115,7 +115,7 @@ export default function CreateStudentGroup() {
         const stud = {
           email: member
         }
-        const url = "https://af-backend123.herokuapp.com/student/studentinGroup/"
+        const url = "/api/student/studentinGroup/"
         await axios.get(url, stud).then((res) => {
             // console.log(member);
             status = res.data.available;

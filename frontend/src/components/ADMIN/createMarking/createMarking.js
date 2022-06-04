@@ -35,7 +35,7 @@ export default function CreateMarking() {
       data.append("attachment", attachment);
 
       await axios
-        .post("https://af-backend123.herokuapp.com/api/files/uploadFile", data)
+        .post("/api/api/files/uploadFile", data)
         .then(async (res) => {
           if (res.status == 200) {
             console.log(res);
@@ -69,7 +69,7 @@ export default function CreateMarking() {
   async function uploadSchemeData(newMarking) {
     console.log(newMarking);
     await axios
-      .post("https://af-backend123.herokuapp.com/marking/createMarking", newMarking)
+      .post("/api/marking/createMarking", newMarking)
       .then((willcreate) => {
         console.log(willcreate);
         if (willcreate) {

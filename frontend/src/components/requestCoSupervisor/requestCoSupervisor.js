@@ -15,7 +15,7 @@ export default function RequestCoSupervisor() {
     const [coSupervisor, setCoSupervisor] = useState("");
 
     function getUsers() {
-        axios.get("https://af-backend123.herokuapp.com/user/allusers").then((res)=>{
+        axios.get("/api/user/allusers").then((res)=>{
             setUsers(res.data);
         }).catch((err)=>{
             alert((err.message));
@@ -30,7 +30,7 @@ export default function RequestCoSupervisor() {
             id,
             coSupervisor
         }
-        axios.post("https://af-backend123.herokuapp.com/student/assingCoSup", coSupSave).then((res) => {
+        axios.post("/api/student/assingCoSup", coSupSave).then((res) => {
             Swal.fire("Success", "CoSupervisor requested successfully", "success").then(() => {
                 window.location.href = "/studentMain";
             })
@@ -39,7 +39,7 @@ export default function RequestCoSupervisor() {
     }
 
     function getResearch() {
-        axios.get(`https://af-backend123.herokuapp.com/student/getResearchById/${id}`).then((res) => {
+        axios.get(`/api/student/getResearchById/${id}`).then((res) => {
             setResearch(res.data);
         })
     }
