@@ -1,0 +1,39 @@
+{
+  "name": "af-backend",
+  "version": "1.0.0",
+  "description": "Research Project Management system",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vPankaja/AF-Backend.git"
+  },
+  "author": "Vishwa,Nisayuru,Shenal & Nadeesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vPankaja/AF-Backend/issues"
+  },
+  "homepage": "https://github.com/vPankaja/AF-Backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mongoose": "^5.13.7",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "express-async-handler": "^1.1.4"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.16"
+  }
+}
