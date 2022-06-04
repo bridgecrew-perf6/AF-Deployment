@@ -2,7 +2,6 @@
   "name": "af-backend",
   "version": "1.0.0",
   "description": "Research Project Management system",
-  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node backend/server.js",
