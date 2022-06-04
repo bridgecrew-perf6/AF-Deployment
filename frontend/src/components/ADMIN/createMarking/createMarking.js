@@ -59,7 +59,7 @@ export default function CreateMarking() {
       const newMarking = {
         assignmentName: assignmentName,
         overallMark: overallMark,
-        attachment: fileUrl,
+        attachment: "",
       };
 
       await uploadSchemeData(newMarking);
