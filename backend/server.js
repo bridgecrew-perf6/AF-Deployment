@@ -34,22 +34,22 @@ app.use(cors());
 app.use(express.json());
 
 // Calling Routes
-app.use("/user", userRoutes);
-app.use("/marking", markingRoutes);
-app.use("/panel", panelRoutes);
-app.use("/student", studentRoutes);
-app.use("/subtype", subtypeRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/marking", markingRoutes);
+app.use("/api/panel", panelRoutes);
+app.use("/api/student", studentRoutes);
+app.use("/api/subtype", subtypeRoutes);
 
-app.use("/documents/", documentSaveRoutes);
+app.use("/api/documents/", documentSaveRoutes);
 
-app.use("/document", documentRoutes);
-app.use("/APannel", apannelRoutes);
+app.use("/api/document", documentRoutes);
+app.use("/api/APannel", apannelRoutes);
 
 app.use("/api/files/", fileUploadController);
 app.use("/api/documents/", documentUploadController);
 
-app.use("/supEve", SupEvaluation);
-app.use("/SupTopic", getTopic);
+app.use("/api/supEve", SupEvaluation);
+app.use("/api/SupTopic", getTopic);
 
 const __dirname = path.resolve();
 //set upload folder

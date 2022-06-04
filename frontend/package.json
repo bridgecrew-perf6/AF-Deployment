@@ -2,6 +2,7 @@
   "name": "af-frontend",
   "version": "1.0.0",
   "description": "Research Project Management System",
+  "private": true,
   "source": "./src/index.html",
   "proxy": "http://127.0.0.1:6500",
   "scripts": {
